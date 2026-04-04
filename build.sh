@@ -10,3 +10,4 @@ python manage.py collectstatic --no-input
 
 # Aplicar migraciones a la base de datos de Render
 python manage.py migrate
+python create_admin.py
