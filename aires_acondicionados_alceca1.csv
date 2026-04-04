@@ -1,0 +1,44 @@
+﻿tag_id;ubicacion;marca;refrigerante;voltaje;btu;amperaje;potencia_va;potencia_w
+REF-001;Dpto. Piscologia;Miller;R-22;220;60000;28;6160;4928
+REF-002;Aire jefatura de producción;Viotto;410-A;220;12000;6;1320;1056
+REF-003;Almacén;Samsung;R-22;220;14000;9;1980;1584
+REF-004;CCM Planta Central;S/M;410-A;220;34000;18;3960;3168
+REF-005;CCM Planta Sur;Stargreen;R-22;220;36000;23;5060;4048
+REF-006;Comedor;Stargreen;410-A;220;60000;52;19791;15832.8
+REF-007;Cuarto de Muestras Calidad;Stargreen;410-A;220;12000;6;1320;1056
+REF-008;Cuarto de Muestras Laboratorio Quimico;Premium levella;410-A;220;12000;6;1320;1056
+REF-009;Gerencia de Operaciones;Innovair;R-22;220;22000;9;1980;1584
+REF-010;Gerencia de Planta ;Khaled;R-22;220;12000;6;1320;1056
+REF-011;Gerencia de Planta;Tronic;R-22;220;18000;6;1320;1056
+REF-012;Gerencia de RR.HH;G-plus;R-22;220;12000;9;1980;1584
+REF-013;Laboratorio de Calidad;Tronic;410-A;220;18000;9;1980;1584
+REF-014;Laboratorio de Calidad;G-plus;R-22;110;12000;11;1210;968
+REF-015;Laboratorio de Calidad;Premiun;R-22;220;12000;6;1320;1056
+REF-016;Laboratorio de Calidad;Samsung;R-22;110;18000;9;990;792
+REF-017;Laboratorio Físico químico (C. Malpica);Aita;R-22;220;60000;28;6160;4928
+REF-018;Laboratorio Físico químico (C. Malpica);Royal Electric;R-22;220;60000;28;6160;4928
+REF-019;Oficina de Delegados;Stargreen;R-22;220;12000;9;1980;1584
+REF-020;Oficina RRHH Anexo;S/M;R-22;110;12000;9;990;792
+REF-021;Oficina de Informática;Stargreen;410-A;220;24000;11;2420;1936
+REF-022;Oficina de Macro;Stargreen;R-22;220;36000;23;5060;4048
+REF-023;Jefatura de Mtto.;G-plus;R-22;110;12000;6;660;528
+REF-024;Planificacion;Philco;R-22;220;9000;6;1320;1056
+REF-025;Nutricionista;Stargreen;410-A;220;18000;9;1980;1584
+REF-026;Oficina de Seguridad Industrial;Frigilux;410-A;220;12000;9;1980;1584
+REF-027;Oficina Gerencia de administración;Stargreen;R-22;220;12000;6;1320;1056
+REF-028;Oficina Gerencia de calidad;Stargreen;410-A;220;12000;5;1100;880
+REF-029;Oficina Jefatura seguridad física;Stargreen;R-22;220;36000;23;5060;4048
+REF-030;Panel P/C;Stargreen;410-A;220;36000;18;3960;3168
+REF-031;Recursos humanos (Andrea);Stargreen;R-22;220;36000;20;4400;3520
+REF-032;Romana;Premiun;R-22;220;12000;9;1980;1584
+REF-033;Sala de Estudio;Stargreen;410-A;220;36000;23;8753;7002.4
+REF-034;Sala de Estudio;Stargreen;410-A;220;60000;18;3960;3168
+REF-035;Salón de conferencias;Stargreen;R-22;220;24000;11;2420;1936
+REF-036;Seguridad física;Frigilux;410-A;220;18000;9;1980;1584
+REF-037;Servicio médico;Stargreen;R-22;220;24000;12;2640;2112
+REF-038;Sindicato;Stargreen;R-22;220;18000;11;2420;1936
+REF-039;Salpest Garita Principal;Frigilux;410-A;220;18000;;;
+REF-040;Salpest RR.HH;Premium;R-22;110;6000;;;
+REF-041;Salpest RR.HH;Premium;R-22;110;12000;;;
+REF-042;Salpest Comedor ;Innovair;R-22;220;12000;;;
+REF-043;Salpest Comedor ;Stargreen;R-22;220;18000;;;

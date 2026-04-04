@@ -1,0 +1,106 @@
+{% extends "admin/base_site.html" %}
+
+{% block content %}
+<div class="content">
+    <div class="container-fluid">
+        
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card card-outline card-primary shadow">
+                    <div class="card-header">
+                        <h3 class="card-title"><strong>Panel de Control - Industrias Pollo Premium 5.8 C.A.</strong></h3>
+                    </div>
+                    <div class="card-body">
+                        <p class="mb-0">Gestión de Mantenimiento Preventivo para Equipos de Refrigeración.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 col-6">
+                <div class="small-box bg-success shadow">
+                    <div class="inner">
+                        <h3>{{ stats_al_dia|default:0 }}</h3>
+                        <p>Equipos Al Día</p>
+                    </div>
+                    <div class="icon"><i class="fas fa-check-circle"></i></div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-6">
+                <div class="small-box bg-warning shadow">
+                    <div class="inner">
+                        <h3>{{ stats_por_vencer|default:0 }}</h3>
+                        <p>Próximos a Vencer</p>
+                    </div>
+                    <div class="icon"><i class="fas fa-exclamation-triangle"></i></div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-6">
+                <div class="small-box bg-danger shadow">
+                    <div class="inner">
+                        <h3>{{ stats_vencidos|default:0 }}</h3>
+                        <p>Mantenimientos Vencidos</p>
+                    </div>
+                    <div class="icon"><i class="fas fa-tools"></i></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <div class="card shadow">
+                    <div class="card-header border-0">
+                        <h3 class="card-title">Distribución de Estados</h3>
+                    </div>
+                    <div class="card-body">
+                        <div style="position: relative; height:300px;">
+                            <canvas id="graficoEstado"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Captura de datos desde Django
+        const alDia = parseInt("{{ stats_al_dia|default:0 }}");
+        const porVencer = parseInt("{{ stats_por_vencer|default:0 }}");
+        const vencidos = parseInt("{{ stats_vencidos|default:0 }}");
+
+        const ctx = document.getElementById('graficoEstado').getContext('2d');
+        
+        new Chart(ctx, {
+            type: 'doughnut',
+            plugins: [ChartDataLabels],
+            data: {
+                labels: ['Al Día', 'Por Vencer', 'Vencidos'],
+                datasets: [{
+                    data: [alDia, porVencer, vencidos],
+                    backgroundColor: ['#28a745', '#ffc107', '#dc3545'],
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'bottom' },
+                    datalabels: {
+                        color: '#fff',
+                        font: { weight: 'bold', size: 16 },
+                        formatter: (value) => value > 0 ? value : ''
+                    }
+                }
+            }
+        });
+    });
+</script>
+{% endblock %}
