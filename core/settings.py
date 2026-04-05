@@ -26,9 +26,17 @@ SECRET_KEY = 'django-insecure-pbq8&kps(_x3bgjn4o1#g2vozuoxu=c(acl*3xtuso08jg7xu$
 import os
 import dj_database_url
 
-DEBUG = False
+# Si la variable 'RENDER' existe en el sistema, DEBUG será False.
+# Si no existe (como en mi laptop), DEBUG será True por defecto.
+DEBUG = 'RENDER' not in os.environ
 
-ALLOWED_HOSTS = ['*']
+# Configuración dinámica de ALLOWED_HOSTS
+if not DEBUG:
+    # En la nube: Solo permitimos tu URL de Render
+    ALLOWED_HOSTS = ['sistema-mantenimiento-pollo.onrender.com']
+else:
+    # En mi laptop: Permitimos localhost para desarrollo
+    ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 
 # Application definition
