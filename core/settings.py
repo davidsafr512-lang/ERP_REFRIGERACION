@@ -166,3 +166,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 AUTH_USER_MODEL = 'usuarios.Usuario'
+
+# Permite que el sistema acepte inicios de sesión desde tu URL de Render
+if not DEBUG:
+    CSRF_TRUSTED_ORIGINS = ['https://sistema-mantenimiento-pollo.onrender.com']
