@@ -71,6 +71,16 @@ JAZZMIN_SETTINGS = {
     ],
     "show_sidebar": True,
     "navigation_expanded": True,
+    "custom_links": {
+        "usuarios": [{
+            "name": "Gestión de Personal", 
+            "url": "admin:usuarios_usuario_changelist", 
+            "icon": "fas fa-users",
+        }]
+    },
+    
+    # Asegúrate de que la app usuarios no esté oculta (por si acaso)
+    "hide_models": [],
 }
 
 MIDDLEWARE = [
