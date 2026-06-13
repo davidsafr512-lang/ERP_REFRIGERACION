@@ -10,6 +10,9 @@ class PlanPreventivoAdmin(admin.ModelAdmin):
     list_display = ('equipo', 'criticidad', 'fecha_proximo_mantenimiento', 'estado_mantenimiento')
     list_filter = ('criticidad',)
     readonly_fields = ('fecha_proximo_mantenimiento',)
+    def get_action_choices(self, request, default_choices=None):
+        """Sobrescribe las opciones por defecto para eliminar los guiones"""
+        return super().get_action_choices(request, default_choices=[])
 
     # Organizacion de la interfaz en secciones (pestanas visuales)
     fieldsets = (

@@ -71,15 +71,8 @@ JAZZMIN_SETTINGS = {
     ],
     "show_sidebar": True,
     "navigation_expanded": True,
-    "custom_links": {
-        "usuarios": [{
-            "name": "Gestión de Personal", 
-            "url": "admin:usuarios_usuario_changelist", 
-            "icon": "fas fa-users",
-        }]
-    },
     
-    # Asegúrate de que la app usuarios no esté oculta (por si acaso)
+    # Asegúrarse de que la app usuarios no esté oculta (por si acaso)
     "hide_models": [],
 }
 
@@ -149,9 +142,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/6.0/topics/i18n/
 
-LANGUAGE_CODE = 'es-es'
+LANGUAGE_CODE = 'es'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Caracas'
 
 USE_I18N = True
 

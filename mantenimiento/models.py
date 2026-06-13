@@ -27,7 +27,7 @@ class PlanPreventivo(models.Model):
     revision_electrica = models.BooleanField(default=True, verbose_name="¿Revisión de Conexiones Eléctricas?")
 
     # Control de Fechas
-    fecha_ultimo_mantenimiento = models.DateField(null=True, blank=True, verbose_name="Último Mantenimiento")
+    fecha_ultimo_mantenimiento = models.DateField(verbose_name="Último Mantenimiento")
     fecha_proximo_mantenimiento = models.DateField(null=True, blank=True, verbose_name="Próximo Mantenimiento (Auto)")
 
     def save(self, *args, **kwargs):
