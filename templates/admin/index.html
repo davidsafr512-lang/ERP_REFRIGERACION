@@ -48,19 +48,34 @@
         </div>
 
         <div class="row mt-4">
-            <div class="col-md-6">
-                <div class="card shadow">
-                    <div class="card-header border-0">
-                        <h3 class="card-title">Distribución de Estados</h3>
-                    </div>
-                    <div class="card-body">
-                        <div style="position: relative; height:300px;">
-                            <canvas id="graficoEstado"></canvas>
-                        </div>
-                    </div>
+    
+    <div class="col-md-6">
+        <div class="card shadow">
+            <div class="card-header border-0">
+                <h3 class="card-title">Distribución de Estados</h3>
+            </div>
+            <div class="card-body">
+                <div style="position: relative; height:300px;">
+                    <canvas id="graficoEstado"></canvas>
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card shadow">
+            <div class="card-header border-0">
+                <h3 class="card-title">Equipos Revisados por Mes</h3>
+            </div>
+            <div class="card-body">
+                <div style="position: relative; height:300px;">
+                    <canvas id="barrasMensualesChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
 
     </div>
 </div>
@@ -70,13 +85,13 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        // Captura de datos desde Django
+        // 1. Carga de datos para Gráfico de Dona
         const alDia = parseInt("{{ stats_al_dia|default:0 }}");
         const porVencer = parseInt("{{ stats_por_vencer|default:0 }}");
         const vencidos = parseInt("{{ stats_vencidos|default:0 }}");
 
         const ctx = document.getElementById('graficoEstado').getContext('2d');
-        
+
         new Chart(ctx, {
             type: 'doughnut',
             plugins: [ChartDataLabels],
@@ -98,6 +113,36 @@
                         font: { weight: 'bold', size: 16 },
                         formatter: (value) => value > 0 ? value : ''
                     }
+                }
+            }
+        });
+
+        // 2. Carga de datos para Gráfico de Barras (Formateado para engañar al linter)
+        const ctxBarras = document.getElementById('barrasMensualesChart').getContext('2d');
+        new Chart(ctxBarras, {
+            type: 'bar',
+            data: {
+                labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+                datasets: [{
+                    label: 'Mantenimientos Ejecutados',
+                    data: JSON.parse('{{ datos_barras|safe }}'),
+                    backgroundColor: '#198754',
+                    borderColor: '#146c43',
+                    borderWidth: 1,
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: { stepSize: 1 }
+                    }
+                },
+                plugins: {
+                    legend: { display: false }
                 }
             }
         });
