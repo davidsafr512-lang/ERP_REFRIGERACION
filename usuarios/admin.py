@@ -1,8 +1,8 @@
 from django.contrib import admin
 from .models import Usuario # El nombre exacto del modelo
+from django.contrib.auth.admin import UserAdmin
 
-class UsuarioAdmin(admin.ModelAdmin):
-    # Este es el mismo método que usaste en los otros modelos
+class UsuarioAdmin(UserAdmin):
     def get_action_choices(self, request, default_choices=None):
         return super().get_action_choices(request, default_choices=[])
 
